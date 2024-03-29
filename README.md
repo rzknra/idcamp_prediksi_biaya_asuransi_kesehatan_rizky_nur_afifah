@@ -285,14 +285,14 @@ Berdasarkan Tabel 2 di atas, diperoleh bahwa model RF2 dan XGB2 mempunyai nilai 
 
 Oleh karena itu, berdasarkan hasil perbandingan nilai metrik evaluasi MSE (train_MSE dan test_MSE), MAE, dan $R^2$ menggunakan Gambar 4 (*barplot*) dan Tabel 2 di atas, diperoleh bahwa model RF2 (Random Forest with Hyperparameter Tuning) dan XGB2 (XGBoost with Hyperparameter Tuning) adalah model terbaik untuk prediksi biaya asuransi kesehatan.
 
-Lebih lanjut, berikut ini berikan hasil pengujian masing-masing model dengan menggunakan salah satu *record* data dari data uji.
+Berikut ini berikan hasil pengujian masing-masing model dengan menggunakan salah satu *record* data dari data uji.
 
 Tabel 3. Hasil Prediksi Setiap Model
 | y_true	| prediksi_RF1	|prediksi_RF2 |	prediksi_XGB1 |	prediksi_XGB2 |
 |----|---|---|---|---|
 | 6877.9801  | 8472.5 | 7024.5 | 8458.5 | 7274.700195 |
 
-Terlihat bahwa model RF2 dan XGB2 memberikan hasil yang paling mendekati y_true (nilai asli)
+Terlihat bahwa model RF2 dan XGB2 memberikan hasil yang paling mendekati y_true (nilai asli).
 
 
 ## Referensi 
