@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - Prediksi Biaya Asuransi Kesehatan
+![image](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/4d4e92f6-f8ca-447f-8080-9aff0bcf43a6)# Laporan Proyek Machine Learning - Prediksi Biaya Asuransi Kesehatan
 
 ## Domain Proyek
 Seiring berjalannya waktu, berbagai jenis penyakit baru yang menurunkan kualitas kesehatan masyarakat bermunculan. Di sisi lain, mahalnya biaya kesehatan mengakibatkan akses ke pelayanan kesehatan pada umumnya masih rendah [[4](http://journal.unhas.ac.id/index.php/jmsk/article/view/8312)]. Oleh karena itu, perlu adanya upaya untuk mengatasi kondisi tersebut. Asuransi kesehatan  adalah  upaya  untuk  mengatasi resiko ketidakpastian akibat sakit dan biaya-biaya yang ditimbulkannya [[3](http://eprints.undip.ac.id/65328/)]. 
@@ -21,7 +21,7 @@ Pengembangan model prediksi biaya kesehatan bertujuan untuk membantu pengambilan
 ### Solution Statements 
 - Untuk mengetahui fitur yang berpengaruh terhadap biaya asuransi kesehatan, dilakukan Analisis Univariat dan Analisis Multivariat. Analsisis univariat dilakukan menggunakan *barplot* dan *histplot*, sedangkan analisis multivariat dilakukan menggunakan *catplot, pairplot* dan *correlation matrix*. 
 - Untuk mengolah *dataset* sehingga bisa digunakan untuk mengembangkan model prediksi biaya asuransi kesehatan, dilakukan *Data Wragling* dan *Data Preparation*. *Data Wragling* yang dilakukan berupa *Data Assesing* dan *Data Cleaning*, sedangkan *Data Preparation* yang dilakukan berupa *Encoding* fitur kategori, pembagian dataset menjadi data latih-data uji, dan *Scaling* fitur numerik.
-- Untuk meningkatkan performa model prediksi biaya asuransi kesehatan, dilakukan hyperparameter tuning terhadap baseline model. Lebih lanjut, untuk menyeleksi model prediksi biaya asuransi kesehatan, dilakukan perbandingan nilai metrik evaluasi menggunakan tabel dan *bar plot*.
+- Untuk meningkatkan performa model prediksi biaya asuransi kesehatan, dilakukan hyperparameter tuning terhadap baseline model. Lebih lanjut, untuk menyeleksi model prediksi biaya asuransi kesehatan, dilakukan perbandingan nilai metrik evaluasi menggunakan tabel dan *bar plot* sehingga diperoleh model terbaik.
 
 ## Data Understanding
 Data yang digunakan dalam pengembangan model merupakan data sekunder yang diperoleh dari Kaggle dengan nama *dataset* yaitu 'US Health Insurance Dataset'. Data tersebut dapat diakses melalui tautan berikut: 
@@ -49,9 +49,18 @@ Lebih lanjut, dilakukan juga pengecekan deskripsi statistik dari setiap variabel
 
 Untuk fitur numerik, diperoleh dekripsi statistik berikut. 
 
-![deskripsi statistik variabel numerik](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/a4d3b4fc-11b6-42a6-8a18-ae44ebcb82d7)
+Tabel 1. Deskripsi Statistik untuk Fitur Numerik
 
-Gambar 1. Deskripsi Statistik untuk Fitur Numerik
+|           | age       |	bmi	    | children  |	charges |
+------------|-----------|-----------|-----------|-----------|
+|count	    | 1338.000000	| 1338.000000	| 1338.000000	| 1338.000000| 
+|mean	    | 39.207025	| 30.663397	| 1.094918	| 13270.422265| 
+|std	    | 14.049960	| 6.098187	| 1.205493	| 12110.011237| 
+|min	    | 18.000000	| 15.960000	| 0.000000	| 1121.873900| 
+|25%	    | 27.000000	| 26.296250	| 0.000000	| 4740.287150| 
+|50%	    | 39.000000	| 30.400000	| 1.000000	| 9382.033000| 
+|75%	    | 51.000000	| 34.693750	| 2.000000	| 16639.912515| 
+|max	    | 64.000000	| 53.130000	| 5.000000	| 63770.428010| 
 
 Deskripsi statistik di atas meliputi:
 1. *Count* adalah jumlah sampel pada data.
@@ -99,22 +108,22 @@ Diperhatikan Gambar 2a berikut ini.
 
 ![univariat_kategori_region](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/0902a5ce-516e-4a52-a8f2-e700c5f3132d)
 
-Gambar 2a. Analisis Univariat (Fitur Kategori)
+Gambar 1a. Analisis Univariat (Fitur Kategori)
 
-Berdasarkan Gambar 2a di atas, diperoleh bahwa:
+Berdasarkan Gambar 1a di atas, diperoleh bahwa:
 1. Banyak tertanggung asuransi laki-laki dan perempuan hampir berimbang, yaitu 50.4% laki-laki dan 49.6% perempuan.
 2. Sebagaian besar tertangggug asuransi bukan perokok. Hal ini terlihat dari sebanyak 79,6% tertanggung asuransi bukan perokok, sisanya sebesar 20,6% tertanggung asuransi merupakan perokok.
 4. Banyak tertanggung asuransi yang tinggal pada tiap-tiap daerah pemukiman hampir sama, yaitu 26.9% di *southeast*, 26.9% di *southwest*, 24.4% di *northwes*t, dan 24.3% di *northeast*.
 
 b. Fitur Numerik
    
-Diperhatikan Gambar 2b berikut ini.
+Diperhatikan Gambar 1b berikut ini.
 
 ![univariat_numerik](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/9bba4270-6d0f-4d89-8faf-b80e099eec3f)
 
-Gambar 2b. Analisis Univariat (Fitur Numerik)
+Gambar 1b. Analisis Univariat (Fitur Numerik)
 
-Berdasarkan Gambar 2b di atas, diperoleh bahwa:
+Berdasarkan Gambar 1b di atas, diperoleh bahwa:
 1. Peningkatan nilai 'children' dan 'charges' sebanding dengan penurunan jumlah sampel. Hal ini terlihat dari histrogram 'children' dan 'charges' yang grafiknya mengalami penurunan seiring semakin banyaknya jumlah sampel.
 2. Distribusi 'charges', 'age', dan 'children' miring ke kanan, sedangkan distribusi 'bmi' cenderung normal.
 3. Rentang 'charges' cukup tinggi yaitu dari skala ratusan dolar amerika hingga sekitar \$60000.
@@ -131,9 +140,9 @@ Pertama, dilakukan pengecekan rata-rata 'charges' terhadap fitur kategori untuk 
 
 ![multivariat_kategori_region](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/e746debd-8f47-44a6-a863-69b335a2c2d5)
 
-Gambar 3a. Analisis Multivariat (Fitur Kategori)
+Gambar 2a. Analisis Multivariat (Fitur Kategori)
 
-Berdasarkan Gambar 3a di atas, diperoleh bahwa:
+Berdasarkan Gambar 2a di atas, diperoleh bahwa:
 1. Pada fitur 'sex', rata-rata 'charges' yang dikenakan terhadap 'male' dan 'female' cenderung mirip. Rentangnya berada antara  \$12000  sampai \$15000 . Dengan demikian, fitur 'sex' mempunyai pengaruh kecil terhadap rata-rata 'charges'.
 2. Pada fitur 'smoker', rata-rata 'charges' untuk 'smoker' jauh lebih besar dibandingkan untuk 'non smoker'. Dengan demikian, fitur 'smoker' mempunyai pengaruh besar terhadap rata-rata 'charges'.
 3. Pada fitur 'region', rata-rata 'charges' yang dikenakan terhadap masing-masing region cenderung mirip. Rentangnya berada antara  \$12000  sampai \$16000 . Dengan demikian, fitur 'region' mempunyai pengaruh kecil terhadap rata-rata 'charges'.
@@ -141,11 +150,11 @@ Berdasarkan Gambar 3a di atas, diperoleh bahwa:
 
 b. Fitur Numerik
 
-Selanjutnya, dilakukan analisis multivariat terhadap fitur numerik sedemikian sehingga diperoleh Gambar 3b berikut. 
+Selanjutnya, dilakukan analisis multivariat terhadap fitur numerik sedemikian sehingga diperoleh Gambar 2b berikut. 
 
 ![multivariat_numerik](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/d57796c3-3023-4c0d-88aa-bdfc42943f9b)
 
-Gambar 3b. Analisis Multivariat (Fitur Numerik)
+Gambar 2b. Analisis Multivariat (Fitur Numerik)
 
 Untuk membaca *pairplot* di atas, perhatikan fitur target 'charges' pada sumbu y. Terlihat bahwa fitur 'age' mempunyai korelasi positif dengan fitur 'price'. Sedangkan, fitur 'bmi' dan 'children' tidak mempunyai korelasi dengan fitur 'price'.
 
@@ -153,7 +162,7 @@ Lebih lanjut, untuk mengecek hubungan antar fitur, digunakan juga *correlation m
 
 ![matriks korelasi](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/28070d73-7f63-4d2d-9116-c5b93695d183)
 
-Gambar 4. Correlation Matrix untuk Fitur Numerik
+Gambar 3. Correlation Matrix untuk Fitur Numerik
 
 Berdasarkan  *correlation matrix* di atas, terlihat bahwa fitur 'age' mempunyai korelasi yang cukup besar dengan fitur 'charges', sedangkan fitur 'bmi' dan 'children' mempunyai korelasi kecil dengan fitur 'charges'. Oleh karena itu, fitur 'bmi' dan 'children' bisa dihilangkan sehingga tidak digunakan dalam tahap selanjutnya. 
 
@@ -200,7 +209,7 @@ Di sisi lain, kelebihan dan kekurangan algoritma XGBoost, yaitu:
     - Lebih rentan terhadap overfitting. 
     - Menggunakan banyak ruang penyimpanan dan kompleksitas komputasai yang tinggi terutama ketika berkerja pada data yang besar sehingga tidak cocok untuk sistem dengan sumber daya terbatas.
 
-Performa model yang dibangun dengan algoritma Random Forest dan Decision Tree dioptimalkan dengan menerapkan *hyperparameter tuning* sedemikian sehingga terdapat empat model *machine learning* yang dikembangkan, yaitu:
+Performa model yang dibangun dengan algoritma Random Forest dan Decision Tree dioptimalkan dengan menerapkan *hyperparameter tuning* pada *baseline* model Random Forest dan XGBoost sedemikian sehingga terdapat empat model *machine learning* yang dikembangkan, yaitu:
 1. RF1: Random Forest
 2. RF2: Random Forest with Hyperparamter Tuning
 3. XGB1: XGBoost 
@@ -234,7 +243,7 @@ Di sisi lain, *hyperparameter* dari algoritma XGBoost yang di-*tuning*, yaitu:
  Nilai *hyperparameter* tersebut yang digunakan untuk mengembangkan model RF2 dan XGB2.
 
 ## Evaluation
-Evaluasi model *machine learning* dilakukan dengan menggunakan tiga metrik evaluasi, yaitu:
+Model *machine learning* yang dibangun di atas merupakan model regeresi, akibatnya untuk mengevaluasi performa model tersebut bisa digunakan tiga metrik evaluasi, yaitu:
 1. MSE (*Mean Squarred Error*).
 2. MAE (*Mean Absolute Error*).
 3. $R^2$ (*R-Squarred*).
@@ -254,17 +263,17 @@ Adapun kegunaan dari setiap metrik evaluasi di atas, yaitu:
 - MAE untuk menghitung selisih absolut dari nilai data hasil prediksi dan nilai data aktual. Semakin kecil nilai MAE, maka semakin baik kualitas model tersebut. 
 - $R^2$ untuk mengetahui seberapa besar pengaruh variabel independen tertentu terhadap variabel dependen. 
 
-Berikut ini diberikan perbandingan nilai metrik evaluasi MSE terhadap data latih (train_mse) dan data uji (test_mse) disajikan dalam gambar berikut.
+Selanjutnya, dibandingkan nilai ketiga metrik evaluasi dari masing-masing model. Nilai metrik evaluasi MSE terhadap data latih (train_mse) dan data uji (test_mse) dibandingkan menggunakan *barplot* berikut ini.
 
 ![perbandingan_mse](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/0864012e-b013-44ff-bf9a-0c43f9d6a68d)
 
-Gambar 5. Perbandingan Nilai MSE terhadap Data Latih dan Data Uji
+Gambar 4. Perbandingan Nilai MSE terhadap Data Latih dan Data Uji
 
-Berdasarkan Gambar 5 tersebut diperoleh bahwa model RF2 dan XGB2 mempunyai nilai 'test_mse' yang lebih rendah dibandingkan kedua model lainnya. Dilain hal, selisih nilai 'test_mse' dan 'train_mse' pada model RF2 dan XGB2 lebih kecil dibandingkan dua model lainnya, yang berarti kedua model tidak terlalu *overfitting*.  
+Berdasarkan Gambar 4 (*barplot*) tersebut diperoleh bahwa model RF2 dan XGB2 mempunyai nilai 'test_mse' yang lebih rendah dibandingkan kedua model lainnya. Dilain hal, selisih nilai 'test_mse' dan 'train_mse' pada model RF2 dan XGB2 lebih kecil dibandingkan dua model lainnya, yang berarti kedua model tidak terlalu *overfitting*. Dengan demikian, bedasarkan perbandingan nilai metrik evaluasi MSE terhadap data latih (train_mse) dan data uji (test_mse) tersebut diperoleh model RF2 dan XGB2 lebih baik dari kedua model lainnya.
 
-Lebih lanjut, nilai ketiga metrik evaluasi yaitu nilai MSE terhadap data uji (test_MSE), MAE, dan $R^2$ dari setiap model *machine learning* yang sudah dibangun diberikan sebagai berikut.
+Lebih lanjut, dibandingkan nilai ketiga metrik evaluasi yaitu nilai MSE terhadap data uji (test_MSE), MAE, dan $R^2$ dari setiap model *machine learning* yang sudah dibangun menggunakan Tabel 2 berikut.
 
-Tabel 1. Nilai Metrik Evaluasi Setiap Model
+Tabel 2. Nilai Metrik Evaluasi Setiap Model
 |     | MSE | MAE | $R^2$ | 
 |-----|-----|-----|-----|
 | RF1 | 25282.763885 | 2922.9584113729475 | 0.5660674252523771 |
@@ -272,18 +281,18 @@ Tabel 1. Nilai Metrik Evaluasi Setiap Model
 | XGB1 | 25967.960248 | 2948.621166460513 | 0.5543072781685672 |
 | XGB2 | 23633.954472 | 2848.303577468292 | 0.594366234561500 |
 
-Berdasarkan Tabel 1 di atas, diperoleh bahwa model RF2 dan XGB2 mempunyai nilai MAE lebih rendah dan nilai $R^2$ lebih tinggi dibandingkan dua model lainnya.
+Berdasarkan Tabel 2 di atas, diperoleh bahwa model RF2 dan XGB2 mempunyai nilai MSE dan MAE terhadap data uji (test_mse) yang lebih rendah dibandingkan kedua model lainnya. Di sisi lain, nilai $R^2$ model RF2 dan XGB2 yang lebih tinggi dibandingkan dua model lainnya. Dengan demikian, berdasarkan perbandingan ketiga nilai metrik evaluasi tersebut diperoleh model RF2 dan XGB2 lebih baik daripada kedua model lainnya. 
 
-Lebih lanjut, dilakukan pengujian masing-masing model dengan menggunakan salah satu sampel data dari data uji sedemikian sehingga diperoleh hasil yang disajikan pada Tabel 2 berikut.
+Oleh karena itu, berdasarkan hasil perbandingan nilai metrik evaluasi MSE (train_MSE dan test_MSE), MAE, dan $R^2$ menggunakan Gambar 4 (*barplot*) dan Tabel 2 di atas, diperoleh bahwa model RF2 (Random Forest with Hyperparameter Tuning) dan XGB2 (XGBoost with Hyperparameter Tuning) adalah model terbaik untuk prediksi biaya asuransi kesehatan.
 
-Tabel 2. Hasil Prediksi Setiap Model
+Lebih lanjut, berikut ini berikan hasil pengujian masing-masing model dengan menggunakan salah satu sampel data dari data uji.
+
+Tabel 3. Hasil Prediksi Setiap Model
 | y_true	| prediksi_RF1	|prediksi_RF2 |	prediksi_XGB1 |	prediksi_XGB2 |
 |----|---|---|---|---|
 | 6877.9801  | 8472.5 | 7024.5 | 8458.5 | 7274.700195 |
 
-Terlihat bahwa model RF2 dan XGB2 memberikan hasil yang paling mendekati y_true (nilai asli).
-
-Dengan demikian, berdasarkan nilai metrik evaluasi MSE, MAE, dan $R^2$ dan hasil pengujian di atas, diperoleh model RF2 (Random Forest with Hyperparameter Tuning) dan XGB2 (XGBoost with Hyperparameter Tuning) menjadi model terbaik untuk prediksi biaya asuransi kesehatan.
+Terlihat bahwa model RF2 dan XGB2 memberikan hasil yang paling mendekati y_true (nilai asli)
 
 
 ## Referensi 
