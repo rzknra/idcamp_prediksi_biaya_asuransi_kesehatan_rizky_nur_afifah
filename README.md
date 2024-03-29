@@ -1,4 +1,4 @@
-![image](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/4d4e92f6-f8ca-447f-8080-9aff0bcf43a6)# Laporan Proyek Machine Learning - Prediksi Biaya Asuransi Kesehatan
+# Laporan Proyek Machine Learning - Prediksi Biaya Asuransi Kesehatan
 
 ## Domain Proyek
 Seiring berjalannya waktu, berbagai jenis penyakit baru yang menurunkan kualitas kesehatan masyarakat bermunculan. Di sisi lain, mahalnya biaya kesehatan mengakibatkan akses ke pelayanan kesehatan pada umumnya masih rendah [[4](http://journal.unhas.ac.id/index.php/jmsk/article/view/8312)]. Oleh karena itu, perlu adanya upaya untuk mengatasi kondisi tersebut. Asuransi kesehatan  adalah  upaya  untuk  mengatasi resiko ketidakpastian akibat sakit dan biaya-biaya yang ditimbulkannya [[3](http://eprints.undip.ac.id/65328/)]. 
@@ -100,7 +100,7 @@ Data yang sudah dibersihkan selanjutnya bisa digunakan untuk analisis univariat 
 
 a. Fitur Kategori
 
-Diperhatikan Gambar 2a berikut ini.
+Diperhatikan Gambar 1a berikut ini.
 
 ![univariat_kategori_sex](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/5b44dca9-fcd2-4088-97ba-44e9824d0ba4)
 
@@ -132,7 +132,7 @@ Setelah dilakukan analisis univariat, selanjutnya dilakukan analisis multivariat
 
 a. Fitur Kategori
 
-Pertama, dilakukan pengecekan rata-rata 'charges' terhadap fitur kategori untuk mengetahui pengaruh fitur kategori terhadap 'charges'. Diperhatikan Gambar 3a berikut.
+Pertama, dilakukan pengecekan rata-rata 'charges' terhadap fitur kategori untuk mengetahui pengaruh fitur kategori terhadap 'charges'. Diperhatikan Gambar 2a berikut.
 
 ![multivariat_kategori_sex](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/63deb315-f3ef-40f6-b5f2-25661284ef12)
 
@@ -285,7 +285,7 @@ Berdasarkan Tabel 2 di atas, diperoleh bahwa model RF2 dan XGB2 mempunyai nilai 
 
 Oleh karena itu, berdasarkan hasil perbandingan nilai metrik evaluasi MSE (train_MSE dan test_MSE), MAE, dan $R^2$ menggunakan Gambar 4 (*barplot*) dan Tabel 2 di atas, diperoleh bahwa model RF2 (Random Forest with Hyperparameter Tuning) dan XGB2 (XGBoost with Hyperparameter Tuning) adalah model terbaik untuk prediksi biaya asuransi kesehatan.
 
-Lebih lanjut, berikut ini berikan hasil pengujian masing-masing model dengan menggunakan salah satu sampel data dari data uji.
+Lebih lanjut, berikut ini berikan hasil pengujian masing-masing model dengan menggunakan salah satu *record* data dari data uji.
 
 Tabel 3. Hasil Prediksi Setiap Model
 | y_true	| prediksi_RF1	|prediksi_RF2 |	prediksi_XGB1 |	prediksi_XGB2 |
