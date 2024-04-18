@@ -5,7 +5,7 @@ Seiring berjalannya waktu, berbagai jenis penyakit baru yang menurunkan kualitas
 
 Peserta asuransi kesehatan (tertanggung) perlu membayarkan sejumlah biaya kepada perusahaan asuransi kesehatan (penanggung) yang  besarnya sudah  ditentukan [[1](http://journal.unhas.ac.id/index.php/jmsk/article/view/8312)]. Beberapa faktor berpengaruh terhadap biaya asuransi kesehatan, yaitu *body mass index* (bmi), umur, jumlah anak, jenis kelamin, status merokok, dan wilayah tinggal. Algoritma *machine learning* bisa dimanfaatkan untuk membantu memprediksi biaya asuransi kesehatan berdasarkan faktor-faktor tersebut, dua diantaranya yaitu Random Forest dan XGBoost [[2](https://ieeexplore.ieee.org/abstract/document/9793258?casa_token=r6h40NMURLoAAAAA:jkzdsMcrd424fZcgOSUK0tRgxuJMliYR85RPWQ-nZLLRku00-cvZFbxWNB43afvIolAdGIu-ZX2lvg)] [[5](http://journal.unuha.ac.id/index.php/JICode/article/view/3294)].
 
-## Bisnis Understanding
+## Business Understanding
 Pengembangan model prediksi biaya kesehatan bertujuan untuk membantu pengambilan keputusan oleh calon peserta asuransi kesehatan atau tertanggung, selain itu juga membantu tertanggung dan penjual asuransi kesehatan melaksanakan keputusan jual beli yang lebih bijaksana. 
 
 ### Problem Statements
