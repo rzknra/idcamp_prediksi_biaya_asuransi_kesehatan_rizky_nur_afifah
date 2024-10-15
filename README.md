@@ -1,55 +1,64 @@
 # Laporan Proyek Machine Learning - Prediksi Biaya Asuransi Kesehatan
 
 ## Domain Proyek
-Seiring berjalannya waktu, berbagai jenis penyakit baru yang menurunkan kualitas kesehatan masyarakat bermunculan. Di sisi lain, mahalnya biaya kesehatan mengakibatkan akses ke pelayanan kesehatan pada umumnya masih rendah [[4](http://journal.unhas.ac.id/index.php/jmsk/article/view/8312)]. Oleh karena itu, perlu adanya upaya untuk mengatasi kondisi tersebut. Asuransi kesehatan  adalah  upaya  untuk  mengatasi resiko ketidakpastian akibat sakit dan biaya-biaya yang ditimbulkannya [[3](http://eprints.undip.ac.id/65328/)]. 
+Seiring berkembangnya waktu, berbagai jenis penyakit baru yang menurunkan kualitas kesehatan masyarakat terus bermunculan [[4](http://journal.unhas.ac.id/index.php/jmsk/article/view/8312)]. Di sisi lain, mahalnya biaya kesehatan mengakibatkan rendahnya akses terhadap pelayanan kesehatan di banyak daerah [[4](http://journal.unhas.ac.id/index.php/jmsk/article/view/8312)]. Oleh karena itu, perlu adanya upaya untuk mengatasi tantangan tersebut. Salah satu upaya yang dapat dilakukan adalah melalui asuransi kesehatan, yang bertujuan untuk mengurangi risiko ketidakpastian akibat sakit dan biaya yang ditimbulkannya [[3](http://eprints.undip.ac.id/65328/)]. 
 
-Peserta asuransi kesehatan (tertanggung) perlu membayarkan sejumlah biaya kepada perusahaan asuransi kesehatan (penanggung) yang  besarnya sudah  ditentukan [[1](http://journal.unhas.ac.id/index.php/jmsk/article/view/8312)]. Beberapa faktor berpengaruh terhadap biaya asuransi kesehatan, yaitu *body mass index* (bmi), umur, jumlah anak, jenis kelamin, status merokok, dan wilayah tinggal. Algoritma *machine learning* bisa dimanfaatkan untuk membantu memprediksi biaya asuransi kesehatan berdasarkan faktor-faktor tersebut, dua diantaranya yaitu Random Forest dan XGBoost [[2](https://ieeexplore.ieee.org/abstract/document/9793258?casa_token=r6h40NMURLoAAAAA:jkzdsMcrd424fZcgOSUK0tRgxuJMliYR85RPWQ-nZLLRku00-cvZFbxWNB43afvIolAdGIu-ZX2lvg)] [[5](http://journal.unuha.ac.id/index.php/JICode/article/view/3294)].
+Peserta asuransi kesehatan (tertanggung) perlu membayar sejumlah biaya kepada perusahaan asuransi kesehatan (penanggung), dengan besar biaya yang sudah ditentukan sebelumnya [[1](http://journal.unhas.ac.id/index.php/jmsk/article/view/8312)]. Beberapa faktor yang memengaruhi biaya asuransi kesehatan meliputi: indeks massa tubuh (BMI), usia, jumlah anak, jenis kelamin, status merokok, dan wilayah tempat tinggal. Oleh karena itu, algoritma machine learning dapat dimanfaatkan untuk memprediksi biaya asuransi kesehatan berdasarkan faktor-faktor tersebut, dengan menggunakan metode seperti **Random Forest** dan **XGBoost** [[2](https://ieeexplore.ieee.org/abstract/document/9793258?casa_token=r6h40NMURLoAAAAA:jkzdsMcrd424fZcgOSUK0tRgxuJMliYR85RPWQ-nZLLRku00-cvZFbxWNB43afvIolAdGIu-ZX2lvg)] [[5](http://journal.unuha.ac.id/index.php/JICode/article/view/3294)].
 
 ## Business Understanding
 Pengembangan model prediksi biaya kesehatan bertujuan untuk membantu pengambilan keputusan oleh calon peserta asuransi kesehatan atau tertanggung, selain itu juga membantu tertanggung dan penjual asuransi kesehatan melaksanakan keputusan jual beli yang lebih bijaksana. 
 
 ### Problem Statements
+- Bagaimana cara mengolah dataset sehingga dapat digunakan untuk mengembangkan model **Random Forest** dan **XGBoost** dalam prediksi biaya asuransi kesehatan?
 - Apa saja fitur yang berpengaruh terhadap biaya asuransi kesehatan?
-- Bagaimana cara mengolah *dataset* sehingga bisa digunakan untuk mengembangkan model prediksi biaya asuransi kesehatan?
-- Bagaimana cara meningkatkan performa dan menyeleksi model prediksi biaya asuransi kesehatan sehingga diperoleh model terbaik?
+- Bagaimana cara meningkatkan performa model **Random Forest** dan **XGBoost**?
+- Bagaimana cara mengevaluasi performa dan menyeleksi model **Random Forest** dan **XGBoost**t untuk prediksi biaya asuransi kesehatan sehingga diperoleh model terbaik?
 
 ### Goals
-- Mengetahui fitur yang berpengaruh terhadap biaya asuransi kesehatan.
-- Mengetahui cara mengolah *dataset* sehingga bisa digunakan untuk mengembangkan model prediksi biaya asuransi kesehatan.
-- Mengetahui cara meningkatkan performa dan menyeleksi model prediksi biaya asuransi kesehatan sehingga diperoleh model terbaik.
+- Mengolah dataset agar dapat digunakan untuk mengembangkan model **Random Forest** dan **XGBoost** dalam prediksi biaya asuransi kesehatan.
+- Mengidentifikasi fitur-fitur yang berpengaruh terhadap biaya asuransi kesehatan.
+- Meningkatkan performa model **Random Forest** dan **XGBoost**. 
+- Mengevaluasi model dan menyeleksi model **Random Forest** dan **XGBoost** untuk prediksi biaya asuransi kesehatan.
+ 
 
 ### Solution Statements 
-- Untuk mengetahui fitur yang berpengaruh terhadap biaya asuransi kesehatan, dilakukan Analisis Univariat dan Analisis Multivariat. Analsisis univariat dilakukan menggunakan *barplot* dan *histplot*, sedangkan analisis multivariat dilakukan menggunakan *catplot, pairplot* dan *correlation matrix*. 
-- Untuk mengolah *dataset* sehingga bisa digunakan untuk mengembangkan model prediksi biaya asuransi kesehatan, dilakukan *Data Wragling* dan *Data Preparation*. *Data Wragling* yang dilakukan berupa *Data Assesing* dan *Data Cleaning*, sedangkan *Data Preparation* yang dilakukan berupa *Encoding* fitur kategori, pembagian dataset menjadi data latih-data uji, dan *Scaling* fitur numerik.
-- Untuk meningkatkan performa model prediksi biaya asuransi kesehatan, dilakukan hyperparameter tuning terhadap baseline model. Lebih lanjut, untuk menyeleksi model prediksi biaya asuransi kesehatan, dilakukan perbandingan nilai metrik evaluasi menggunakan tabel dan *bar plot* sehingga diperoleh model terbaik.
+- **Pengolahan Dataset**: Untuk mengolah dataset sehingga bisa digunakan dalam model prediksi, dilakukan proses **data wrangling** dan **data preparation**. Proses data wrangling meliputi data assesing dan data cleaning, sementara data preparation melibatkan:
+    - Encoding untuk fitur kategori menggunakan LabelEncoder.
+    - Pembagian dataset menjadi data latih dan data uji.
+    - Scaling untuk fitur numerik menggunakan MinMaxScaler.
+- **Analisis Fitur**: Untuk mengetahui fitur yang berpengaruh terhadap biaya asuransi kesehatan, dilakukan **analisis univariat** dan **multivariat**. Analisis univariat menggunakan Barplot dan Histplot, sedangkan analisis multivariat menggunakan Catplot, Pairplot, dan Corellation Matrix. Lebih lanjut, kegunaan spesifik masing-masing visualisasi tersebut, yaitu:
+    - Barplot: Untuk melihat distribusi fitur kategorikal.
+    - Histplot: Untuk memeriksa distribusi fitur numerik dan mendeteksi outlier.
+    - Catplot: Untuk melihat hubungan antara fitur kategorikal dan numerik.
+    - Pairplot: Untuk memvisualisasikan hubungan antar fitur numerik.
+    - Correlation matrix: Untuk mengetahui kekuatan korelasi antar fitur numerik dengan variabel target.
+- **Modeling dan Peningkatan Performa**: Untuk membangun model prediksi, digunakan dua algoritma: Random Forest dan XGBoost. Selanjutnya, untuk meningkatkan performa model, dilakukan **hyperparameter tuning** terhadap model dasar (baseline model). 
+- **Evaluasi dan Seleksi Model**: Kinerja model dievaluasi menggunakan beberapa metrik evaluasi, yaitu **MSE** (Mean Squared Error), **MAE** (Mean Absolute Error), **$R^2$** (Koefisien Determinasi). Evaluasi dilakukan untuk mengukur keakuratan prediksi model terhadap biaya asuransi kesehatan. Selanjutnya, seleksi model dilakukan dengan membandingkan nilai metrik evaluasi, baik menggunakan tabel maupun Barplot, untuk memilih model yang memberikan hasil terbaik.
 
+ 
 ## Data Understanding
-Data yang digunakan dalam pengembangan model merupakan data sekunder yang diperoleh dari Kaggle dengan nama *dataset* yaitu 'US Health Insurance Dataset'. Data tersebut dapat diakses melalui tautan berikut: 
+Data yang digunakan dalam pengembangan model ini adalah data sekunder yang diperoleh dari Kaggle dengan nama dataset **'US Health Insurance Dataset**', yang dapat diakses melalui tautan berikut: 
 https://www.kaggle.com/datasets/teertha/ushealthinsurancedataset.
 
-Lebih lanjut, detail mengenai *dataset* tersebut diberikan sebagai berikut:
-- Dataset berupa file CSV.
-- Dataset terdiri dari 1338 *record* (pengamatan) dan 7 fitur. 
-- Dataset terdiri dari 3 fitur kategori (*sex, smoker*, dan *region*) dan 4 fitur numerik (*bmi, charge, age*, dan *children*).
+Lebih lanjut, detail mengenai dataset tersebut diberikan sebagai berikut:
+- Dataset berupa file **CSV**.
+- Dataset terdiri dari **1338 record dan 7 fitur**. 
+- Dataset terdiri dari **3 fitur kategori** (sex, smoker, dan region) dan **4 fitur numeri**k (bmi, charge, age, dan children).
 
 ### Variabel-Variabel dari US Health Insurance Dataset
-Berdasarkan informasi di Kaggle, variabel-variabel pada *dataset* adalah sebagai berikut:
-1. *age*: usia tertanggung asuransi (dalam satuan tahun).
-2. *sex*: jenis kelamain tertanggung asuransi (*male* atau *famale*).
-3. *bmi* (*body mass index*): nilai perbandingan antara berat badan dan kuadrat dari tinggi badan (dalam satuan $kg/m^2$).
-4. *children*: jumlah anak yang ditanggung oleh penyedia asuransi kesehatan.
-5. *smoker*: status merokok tertanggung asuransi (*yes* atau *no*).
-6. *region*: daerah pemukiman tertanggung asuransi di US (meliputi  *southwest, southeast, northwest*, dan *northeast*).
-7. *charges*: besar biaya asuransi yang dibebankan kepada tertanggung asuransi (dalam satuan dolar US \$).
+Berdasarkan informasi di Kaggle, variabel-variabel pada dataset adalah sebagai berikut:
+1. **age**: usia tertanggung asuransi (dalam tahun).
+2. **sex**: jenis kelamain tertanggung asuransi (male atau famale).
+3. **bmi (body mass index)**: nilai perbandingan antara berat badan dan kuadrat dari tinggi badan (dalam $kg/m^2$).
+4. **children**: jumlah anak yang ditanggung oleh penyedia asuransi kesehatan.
+5. **smoker**: status merokok tertanggung asuransi (yes atau no).
+6. **region**: daerah pemukiman tertanggung asuransi di US (southwest, southeast, northwest, dan northeast).
+7. **charges**: besar biaya asuransi yang dibebankan kepada tertanggung asuransi (dalam USD).
 
-Lebih lanjut, dilakukan juga pengecekan deskripsi statistik dari setiap variabel/fitur. Untuk fitur kategori, diperoleh bahwa:
-1. fitur 'sex' mempunyai nilai unik, yaitu *female* dan *male*.
-2. fitur 'smoker' mempunyai nilai unik, yaitu *yes* dan *no*.
-3. fitur 'region' mempunyai nilai unik, yaitu *southwest, southeast, northwest*, dan *northeast*.
+### Deskrispsi Statistik Fitur Numerik
+Berikut adalah hasil pengecekan deskripsi statistik untuk fitur numerik.
 
-Untuk fitur numerik, diperoleh dekripsi statistik berikut. 
-
-Tabel 1. Deskripsi Statistik untuk Fitur Numerik
+Tabel 1. Deskripsi Statistik Fitur Numerik
 
 |           | age       |	bmi	    | children  |	charges |
 ------------|-----------|-----------|-----------|-----------|
@@ -63,40 +72,45 @@ Tabel 1. Deskripsi Statistik untuk Fitur Numerik
 |max	    | 64.000000	| 53.130000	| 5.000000	| 63770.428010| 
 
 Deskripsi statistik di atas meliputi:
-1. *Count* adalah jumlah sampel pada data.
-2. *Mean* adalah nilai rata-rata.
-3. *Std* adalah standar deviasi.
-4. *Min* yaitu nilai minimum setiap kolom.
+1. Count adalah jumlah sampel pada data.
+2. Mean adalah nilai rata-rata.
+3. Std adalah standar deviasi.
+4. Min yaitu nilai minimum setiap kolom.
 5. 25% adalah kuartil pertama. Kuartil adalah nilai yang menandai batas interval dalam empat bagian sebaran yang sama.
 6. 50% adalah kuartil kedua, atau biasa juga disebut median (nilai tengah).
 7. 75% adalah kuartil ketiga.
 8. Max adalah nilai maksimum.
 
 ### Data Assesing
-Pada tahap ini, dilakukan pengecekan terhadap:
-1. Data duplikat (data yang bernilai sama dengan data lainnya).
-2. *Missing value* (data yang hilang atau tidak tersedia).
-3. *Outlier* (data yang menyimpang dari rata-rata sekumpulan data yang ada).
+Pada tahap ini, dilakukan pengecekan terhadap beberapa aspek penting dalam dataset, yaitu:
 
-Berdasarkan *Data Assesing* yang sudah dilakukan, diperoleh bahwa:
-1. Ada 1 *record* yang terduplikat.
-2. Tidak ada *missing value*.
-3. Fitur 'bmi' dan 'charges' mempunyai *outlier*.
+- **Data Duplikat**: Memeriksa apakah terdapat data yang terduplikat atau memiliki nilai yang sama dengan data lainnya.
+- **Missing Value**: Memeriksa apakah ada data yang hilang atau tidak tersedia pada fitur-fitur yang ada.
+- **Outlier**: Mendeteksi data yang menyimpang jauh dari distribusi umum data lainnya (outlier).
+
+Berdasarkan hasil Data Assesing yang telah dilakukan, diperoleh temuan sebagai berikut:
+
+- Terdapat **1 record** yang terduplikat.
+- **Tidak ada missing value** pada dataset.
+- Fitur **'bmi'** dan **'charges'** terdeteksi mengandung outlier.
 
 ### Data Cleaning 
-Berdasarkan hasil dari *Data Assesing*, maka selanjutnya dilakukan *Data Cleaning* atau pembersihan data yang meliputi:
-1. Penghapusan *record* yang terduplikat.
-2. Penggunaan metode *Inter Quartile Range* (IQR) untuk mengatasi *outlier*, yaitu 
+Berdasarkan temuan dari **Data Assesing**, langkah selanjutnya adalah melakukan **Data Cleaning**, yang meliputi pembersihan data dengan langkah-langkah sebagai berikut:
+- **Penghapusan Record Duplikat**: Menghapus record yang terduplikat agar tidak mempengaruhi analisis dan model.
+- **Penanganan Outlier**: Mengatasi outlier dengan menggunakan metode Interquartile Range (IQR). Rumus untuk IQR adalah:
 $$IQR = Q_3 - Q_1,$$ 
 dengan:
     - $IQR$ = *Inter Quartile Range*
     - $Q_3$ = Quartile 3
     - $Q_1$ = Quartile 1
 
-Setelah *record*  yang terduplikat dihapus, diperoleh *dataset* baru yang terdiri dari 1337 *record*. Lebih lanjut, setelah diimplementasikan metode IQR, diperoleh *dataset* baru yang terdiri dari 1192 *record*. *Dataset* inilah yang akan digunakan dalam tahap selanjutnya.
+Setelah dilakukan **penghapusan record duplikat**, dataset yang tersisa terdiri dari **1337 record**. Selanjutnya, setelah mengimplementasikan metode IQR untuk menangani outlier, dataset yang digunakan dalam tahap selanjutnya berjumlah **1192 record**.
 
 ### Analisis Univariat dan Analisis Multivariat
-Data yang sudah dibersihkan selanjutnya bisa digunakan untuk analisis univariat dan analisis multivariat. Analisis univariat dilakukan untuk mengetahui dan mengindentifikasi karakterisitik dari setiap fitur, sedangkan analisis multivariat digunakan untuk mengetahui hubungan antar fitur. Lebih lanjut, analisis univariat dilakukan terhadap fitur kategori maupun fitur numerik sebagai berikut.
+Data yang sudah dibersihkan selanjutnya bisa digunakan untuk analisis univariat dan analisis multivariat. 
+
+#### Analisis Univariat 
+Analisis Univariat bertujuan untuk menggali karakteristik setiap fitur secara terpisah, baik untuk fitur kategori maupun fitur numerik. Berikut adalah hasil analisis univariat yang dilakukan pada dataset.
 
 a. Fitur Kategori
 
@@ -111,9 +125,9 @@ Diperhatikan Gambar 1a berikut ini.
 Gambar 1a. Analisis Univariat (Fitur Kategori)
 
 Berdasarkan Gambar 1a di atas, diperoleh bahwa:
-1. Banyak tertanggung asuransi laki-laki dan perempuan hampir berimbang, yaitu 50.4% laki-laki dan 49.6% perempuan.
-2. Sebagaian besar tertangggug asuransi bukan perokok. Hal ini terlihat dari sebanyak 79,6% tertanggung asuransi bukan perokok, sisanya sebesar 20,6% tertanggung asuransi merupakan perokok.
-4. Banyak tertanggung asuransi yang tinggal pada tiap-tiap daerah pemukiman hampir sama, yaitu 26.9% di *southeast*, 26.9% di *southwest*, 24.4% di *northwes*t, dan 24.3% di *northeast*.
+1. **Jenis Kelamin**: Banyak tertanggung asuransi laki-laki dan perempuan hampir berimbang, yaitu 50.4% laki-laki dan 49.6% perempuan.
+2. **Status Merokok**: Sebagian besar tertanggung asuransi bukan perokok, dengan 79.6% non-perokok dan sisanya, 20.6%, perokok.
+4. **Region**: Banyak tertanggung asuransi yang tinggal pada tiap-tiap daerah pemukiman hampir sama, yaitu 26.9% di *southeast*, 26.9% di *southwest*, 24.4% di *northwes*t, dan 24.3% di *northeast*.
 
 b. Fitur Numerik
    
@@ -125,10 +139,13 @@ Gambar 1b. Analisis Univariat (Fitur Numerik)
 
 Berdasarkan Gambar 1b di atas, diperoleh bahwa:
 1. Peningkatan nilai 'children' dan 'charges' sebanding dengan penurunan jumlah sampel. Hal ini terlihat dari histrogram 'children' dan 'charges' yang grafiknya mengalami penurunan seiring semakin banyaknya jumlah sampel.
-2. Distribusi 'charges', 'age', dan 'children' miring ke kanan, sedangkan distribusi 'bmi' cenderung normal.
+2. Distribusi 'charges', 'age', dan 'children' miring ke kanan, artinya lebih banyak data dengan nilai yang lebih rendah dibandingkan yang lebih tinggi. Di sisi lain, distribusi 'bmi' cenderung normal.
 3. Rentang 'charges' cukup tinggi yaitu dari skala ratusan dolar amerika hingga sekitar \$60000.
 
-Setelah dilakukan analisis univariat, selanjutnya dilakukan analisis multivariat. Analsis multivariat yang dilakukan di sini akan lebih berfokus untuk mengetahui hubungan antara fitur target 'charges' dengan fitur-fitur lainnya, baik fitur kategori maupun numerik. Berikut ini dilakukan analisis multivariat tersebut. 
+Setelah dilakukan analisis univariat, selanjutnya dilakukan analisis multivariat.
+
+#### Analisis Multivariat
+Analisis Multivariat bertujuan untuk mengetahui hubungan antara fitur target charges dengan fitur-fitur lainnya, baik kategori maupun numerik. Berikut ini dilakukan analisis multivariat tersebut. 
 
 a. Fitur Kategori
 
@@ -143,10 +160,11 @@ Pertama, dilakukan pengecekan rata-rata 'charges' terhadap fitur kategori untuk 
 Gambar 2a. Analisis Multivariat (Fitur Kategori)
 
 Berdasarkan Gambar 2a di atas, diperoleh bahwa:
-1. Pada fitur 'sex', rata-rata 'charges' yang dikenakan terhadap 'male' dan 'female' cenderung mirip. Rentangnya berada antara  \$12000  sampai \$15000 . Dengan demikian, fitur 'sex' mempunyai pengaruh kecil terhadap rata-rata 'charges'.
-2. Pada fitur 'smoker', rata-rata 'charges' untuk 'smoker' jauh lebih besar dibandingkan untuk 'non smoker'. Dengan demikian, fitur 'smoker' mempunyai pengaruh besar terhadap rata-rata 'charges'.
-3. Pada fitur 'region', rata-rata 'charges' yang dikenakan terhadap masing-masing region cenderung mirip. Rentangnya berada antara  \$12000  sampai \$16000 . Dengan demikian, fitur 'region' mempunyai pengaruh kecil terhadap rata-rata 'charges'.
-4. Karena fitur 'sex' dan 'region' mempunyai pengaruh kecil terhadap rata-rata 'charges', maka kedua fitur tersebut bisa dihilangkan sehingga hanya tersisa fitur 'smoker' untuk fitur kategori.
+1. **Sex**: rata-rata 'charges' yang dikenakan terhadap 'male' dan 'female' cenderung mirip. Rentangnya berada antara  \$12000  sampai \$15000 . Dengan demikian, fitur 'sex' mempunyai pengaruh kecil terhadap rata-rata 'charges'.
+2. **Smoker**: rata-rata 'charges' untuk 'smoker' jauh lebih besar dibandingkan untuk 'non smoker'. Dengan demikian, fitur 'smoker' mempunyai pengaruh besar terhadap rata-rata 'charges'.
+3. **Region**: rata-rata 'charges' yang dikenakan terhadap masing-masing region cenderung mirip. Rentangnya berada antara  \$12000  sampai \$16000 . Dengan demikian, fitur 'region' mempunyai pengaruh kecil terhadap rata-rata 'charges'.
+
+**Kesimpulan**: Karena fitur sex dan region memiliki pengaruh kecil terhadap charges, kedua fitur ini dapat dihilangkan dari model untuk menyederhanakan analisis dan meningkatkan efisiensi model. Hanya fitur smoker yang tetap dipertahankan sebagai fitur kategori.
 
 b. Fitur Numerik
 
@@ -156,26 +174,42 @@ Selanjutnya, dilakukan analisis multivariat terhadap fitur numerik sedemikian se
 
 Gambar 2b. Analisis Multivariat (Fitur Numerik)
 
-Untuk membaca *pairplot* di atas, perhatikan fitur target 'charges' pada sumbu y. Terlihat bahwa fitur 'age' mempunyai korelasi positif dengan fitur 'price'. Sedangkan, fitur 'bmi' dan 'children' tidak mempunyai korelasi dengan fitur 'price'.
+Untuk membaca **Pairplot** di atas, perhatikan fitur target 'charges' pada sumbu y. Berdasarkan pairplot yang ditampilkan, analisis hubungan antar fitur numerik mengungkapkan hal-hal berikut:
+- **Age** memiliki korelasi positif dengan charges, yang menunjukkan bahwa semakin tua usia seseorang, semakin tinggi kemungkinan charges yang diterima.
+- **BMI** dan **children** tidak menunjukkan korelasi yang signifikan dengan charges dalam visualisasi ini.
 
-Lebih lanjut, untuk mengecek hubungan antar fitur, digunakan juga *correlation matrix* berikut ini.
+Untuk memperdalam analisis korelasi antar fitur numerik, digunakan **correlation matrix** berikut.
 
 ![matriks korelasi](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/28070d73-7f63-4d2d-9116-c5b93695d183)
 
 Gambar 3. Correlation Matrix untuk Fitur Numerik
 
-Berdasarkan  *correlation matrix* di atas, terlihat bahwa fitur 'age' mempunyai korelasi yang cukup besar dengan fitur 'charges', sedangkan fitur 'bmi' dan 'children' mempunyai korelasi kecil dengan fitur 'charges'. Oleh karena itu, fitur 'bmi' dan 'children' bisa dihilangkan sehingga tidak digunakan dalam tahap selanjutnya. 
+Berdasarkan correlation matrix, dapat dilihat bahwa:
+- Age memiliki korelasi positif yang cukup signifikan dengan charges (0.44).
+- BMI memiliki korelasi yang sangat kecil dengan charges (-0.06).
+Children memiliki korelasi yang sangat kecil dengan charges (0.08).
+- BMI dan Children juga menunjukkan korelasi yang sangat kecil satu sama lain, dengan nilai korelasi yang hampir mendekati 0.
+
+Selain charges, kita juga melakukan analisis korelasi antar fitur numerik lainnya, yaitu age, BMI, dan children.
+- Age dan BMI memiliki korelasi 0.12, yang menunjukkan hubungan lemah positif antara usia dan indeks massa tubuh (BMI). Meskipun hubungan ini lemah, semakin tua usia seseorang mungkin sedikit berhubungan dengan tingginya BMI.
+- Age dan Children memiliki korelasi 0.04, yang sangat kecil. Hal ini menunjukkan bahwa usia seseorang hampir tidak berhubungan dengan jumlah anak yang dimilikinya.
+- BMI dan Children memiliki korelasi 0.01, yang juga sangat kecil. Ini menunjukkan bahwa BMI tidak memiliki pengaruh yang signifikan terhadap jumlah anak yang dimiliki.
+
+Kesimpulan Korelasi Antar Fitur Numerik:
+- Age memiliki korelasi yang cukup signifikan dengan charges, sehingga penting untuk dipertahankan dalam model.
+- BMI dan children memiliki korelasi yang sangat kecil dengan charges, serta antara satu dengan yang lain, sehingga dipertimbangkan untuk dihilangkan guna menyederhanakan model.
+- Age, BMI, dan children semuanya memiliki korelasi yang sangat kecil satu sama lain. Oleh karena itu, fitur-fitur ini dapat dianggap independen dalam hal interaksi antar mereka.
 
 ## Data Preparation 
-*Data preparation* dilakukan untuk mentransformasi data sehingga menjadi bentuk yang cocok dalam proses pemodelan. Pada bagian ini, dilakukan tiga tahap persiapan data, yaitu:
-1. Encoding Fitur Kategori.
-Encoding dilakukan untuk mengubah fitur kategori menjadi fitur numerik. Salah satu teknik yang digunakan untuk encoding yaitu *label encoding* dengan menggunakan fungsi LabelEncoder dari library ScikitLearn. Fitur kategori dari *dataset* yang dikenakan encoding yaitu 'sex' sehingga diperoleh .
-2. Pembagian Dataset.
-Pembagian *dataset* menjadi data latih (train) dan data uji (test) perlu dilakukan sebelum membangun model. Pembagian *dataset* ini bisa dilakukan menggunakan fungsi train_test_split dari library ScikitLearn. Adapun proporsi pembagian data latih dan data uji yang digunakan dalam tahap ini, yaitu 80:20, yang merupakan proporsi umum yang sering digunakan. Dengan proporsi pembagian 80:20, maka diperoleh:
-    - data latih terdiri dari 953 *record*. 
-    - data uji terdiri dari 239 *record*. 
-3. Scaling Fitur Numerik.
-Scaling atau penyekelaan ialah proses mengubah data sehingga mempunyai nilai dalam rentang tertentu. Untuk fitur numerik, salah satu teknik yang umum untuk digunakan yaitu MinMaxScaler dari library Scikitlearn. MinMaxScaler mentransformasi data sehingga nilainya berada dalam rentang 0 hingga 1. MinMaxScaler melakukan proses penyekalaan fitur dengan mengurangkan nilai minimal fitur (min) kemudian membaginya dengan selisih dari nilai minimal fitur (min) dan nilai maksimal fitur(max), yaitu
+Pada tahap **data preparation** atau persiapan data, dilakukan transformasi data agar sesuai untuk proses pemodelan. Terdapat tiga langkah utama yang dilakukan, yaitu:
+1. **Encoding Fitur Kategori**
+Encoding digunakan untuk mengubah fitur kategori menjadi fitur numerik, yang diperlukan oleh sebagian besar algoritma pembelajaran mesin. Pada dataset ini, encoding dilakukan pada fitur kategori 'sex' menggunakan teknik Label Encoding yang diterapkan melalui fungsi LabelEncoder dari library Scikit-learn. Dengan teknik ini, fitur 'sex' yang awalnya bernilai 'male' dan 'female' diubah menjadi angka numerik.
+2. **Pembagian Dataset**
+Sebelum membangun model, data perlu dibagi menjadi dua bagian utama: data latih (train) dan data uji (test). Pembagian ini dilakukan dengan menggunakan fungsi train_test_split dari library Scikit-learn. Proporsi umum yang digunakan dalam tahap ini adalah **80:20**, artinya 80% data digunakan untuk pelatihan model dan 20% sisanya digunakan untuk pengujian model. Berdasarkan proporsi tersebut, hasil pembagian dataset adalah sebagai berikut:
+- Data latih terdiri dari **953 record**
+- Data uji terdiri dari **239 record** 
+3. **Scaling Fitur Numerik**
+Scaling atau penyekalaan adalah langkah penting untuk mengubah nilai-nilai fitur numerik agar berada dalam rentang tertentu. Hal ini penting untuk memastikan bahwa model tidak terpengaruh oleh skala fitur yang berbeda. Salah satu teknik yang umum digunakan adalah **MinMaxScaler** dari library Scikit-learn, yang mentransformasi data sehingga berada dalam rentang 0 hingga 1. Proses scaling menggunakan rumus berikut:
 $$x_{scaled} = \frac{x - min}{max - min},$$
 dengan:
     - $x_{scaled}$ = hasil scaling data
@@ -188,45 +222,48 @@ Pada tahap ini dikembangkan model *machine learning* dengan dua algoritma, yaitu
 1. Random Forest.
 2. XGBoost.
 
-Kedua model tersebut merupakan model *ensemble* (*group*), yaitu model prediksi yang terdiri dari beberap model dan bekerja secara bersama-sama. Ada dua teknik pendekatan dari model *ensemble*, yaitu *bagging* dan *boosting*. Random forest merupakan versi *bagging* dari algoritma Decision Tree, sedangkan XGBoost merupakan versi *boosting* dari algoritma Decision Tree.
+Kedua model tersebut termasuk dalam kategori **ensemble models**, di mana prediksi dibuat dengan menggabungkan beberapa model secara bersama-sama. Ada dua pendekatan utama dalam teknik ensemble, yaitu **bagging dan boosting**.
+- **Random Forest** adalah algoritma yang berbasis **bagging**, yang menggunakan beberapa pohon keputusan dan menggabungkan hasilnya untuk memprediksi output.
+- **XGBoost** adalah algoritma berbasis **boosting**, yang membangun model secara bertahap, di mana setiap pohon keputusan yang baru berfokus pada kesalahan yang dibuat oleh pohon keputusan sebelumnya.
 
-Algoritma Random Forest dan XGBoost mempunyai kelebihan dan kekurangan masing-masing. Kelebihan dan kekurangan algoritma Random Forest, yaitu:
+### Kelebihan dan Kekurangan Model
+Algoritma Random Forest dan XGBoost mempunyai kelebihan dan kekurangan masing-masing. Kelebihan dan kekurangan algoritma **Random Forest**, yaitu:
 1. Kelebihan 
-    - Mengurangi varians dalam model dan meningkatkan generalisasi data baru sehingga mengurangi overfitting.
-    - Cenderung stabil.
-    - Bekerja dengan baik pada data yang tidak seimbang. 
-    - Bekerja dengan baik pada data kecil.
+   - **Mengurangi Varians & Meningkatkan Generalisasi**: Random Forest mengurangi overfitting dengan membagi data menjadi banyak subset dan membangun banyak pohon. Hal ini membantu model untuk lebih generalisasi terhadap data baru. Ini merupakan karakteristik dari teknik bagging yang digunakan dalam Random Forest, di mana model mencoba untuk meminimalkan varians dan meningkatkan stabilitas model secara keseluruhan. Bagging mengurangi varians model dengan menggabungkan banyak pohon keputusan yang berbeda [[6](https://link.springer.com/article/10.1023/A:1010933404324)].
+    - **Cenderung Stabil dan Bekerja dengan Data Kecil**: Karena menggunakan banyak pohon, Random Forest cenderung lebih stabil dan dapat bekerja dengan baik pada data kecil. Hal ini membantu menghindari overfitting yang sering terjadi pada model yang lebih kompleks [[7](https://ieeexplore.ieee.org/document/7034345)].
+    - **Bekerja dengan Data Tidak Seimbang**: Random Forest dapat bekerja dengan baik pada data yang tidak seimbang dengan memberi bobot pada setiap kelas berdasarkan distribusi data. Ini membuatnya cocok untuk dataset yang mungkin memiliki distribusi kelas yang sangat tidak merata [[6](https://link.springer.com/article/10.1023/A:1010933404324)].
 2. Kekurangan
-    - Cenderung bias terhadap data kategori. 
-    - Waktu komputasi pada dataset berskala besar cenderung lambat. 
+    - **Bias terhadap Data Kategori dengan Banyak Kategori**: Random Forest bisa memilih fitur dengan banyak kategori sebagai pembagi, yang dapat menyebabkan ketidakseimbangan dalam pembagian data. Hal ini menjadi tantangan, terutama dalam kasus dengan variabel kategori yang memiliki banyak level [[8](https://www.researchgate.net/publication/239158927_An_overview_of_Random_Forest)].
+    - **Waktu Komputasi pada Dataset Besar**: Random Forest memerlukan waktu komputasi yang lebih lama ketika digunakan pada dataset yang besar karena banyaknya pohon yang harus dibangun dan diuji [[7](https://ieeexplore.ieee.org/document/7034345)].
 
-Di sisi lain, kelebihan dan kekurangan algoritma XGBoost, yaitu:
+Di sisi lain, kelebihan dan kekurangan algoritma **XGBoost**, yaitu:
 1. Kelebihan 
-    - Mengurangi bias dalam model sehingga mengurangi underfitting.
-    - Dirancang untuk pelatihan model yang efisien dan *scalable* sehingga cocok untuk bekerja pada data besar.
-    - Bekerja dengan baik pada data dengan *misssing value*.
+    - **Mengurangi Bias & Underfitting**: XGBoost mengurangi bias dan underfitting melalui teknik boosting, yang berfokus pada perbaikan kesalahan dari model sebelumnya. Ini membantu meningkatkan akurasi prediksi, terutama pada dataset yang lebih kompleks [[6](https://link.springer.com/article/10.1023/A:1010933404324)].
+    - **Pelatihan Model yang Efisien dan Skalabel**: XGBoost dioptimalkan untuk kecepatan dan penggunaan memori yang efisien, membuatnya cocok untuk bekerja dengan data besar. Algoritma ini dirancang untuk melatih model dengan lebih cepat dan pada skala yang lebih besar dibandingkan banyak algoritma lain [[9](https://dl.acm.org/doi/10.1145/2939672.2939785)].
+    - **Menangani Missing Values**: XGBoost secara otomatis menangani missing values, menghindari kesalahan prediksi pada data yang hilang dan meningkatkan fleksibilitas dalam menangani data yang tidak lengkap [[9](https://dl.acm.org/doi/10.1145/2939672.2939785)].
 2. Kekurangan
-    - Lebih rentan terhadap overfitting. 
-    - Menggunakan banyak ruang penyimpanan dan kompleksitas komputasai yang tinggi terutama ketika berkerja pada data yang besar sehingga tidak cocok untuk sistem dengan sumber daya terbatas.
+    - **Rentan terhadap Overfitting**: XGBoost cenderung overfit jika tidak dikendalikan dengan baik, terutama saat model terus diperbaiki dengan menambahkan lebih banyak pohon tanpa mempertimbangkan parameter regularisasi yang tepat. Oleh karena itu, kontrol hyperparameter yang ketat diperlukan untuk menghindari overfitting [[10](https://www.researchgate.net/publication/311102752_A_Survey_on_Overfitting_and_Model_Complexity)].
+    - **Memerlukan Banyak Ruang Penyimpanan dan Komputasi yang Tinggi**: XGBoost membutuhkan ruang penyimpanan yang cukup besar dan konsumsi memori yang tinggi, terutama ketika bekerja dengan data yang sangat besar. Ini bisa menjadi masalah untuk sistem yang memiliki keterbatasan sumber daya komputasi [[9](https://dl.acm.org/doi/10.1145/2939672.2939785)].
 
-Performa model yang dibangun dengan algoritma Random Forest dan Decision Tree dioptimalkan dengan menerapkan *hyperparameter tuning* pada *baseline* model Random Forest dan XGBoost sedemikian sehingga terdapat empat model *machine learning* yang dikembangkan, yaitu:
+## Peningkatan Performa Model
+Performa model yang dibangun dengan algoritma **Random Forest** dan **XGBoost** dioptimalkan dengan menerapkan **hyperparameter tuning** pada baseline model Random Forest dan XGBoost sedemikian sehingga terdapat **empat model** machine learning yang dikembangkan, yaitu::
 1. RF1: Random Forest
-2. RF2: Random Forest with Hyperparamter Tuning
+2. RF2: Random Forest dengan Hyperparamter Tuning
 3. XGB1: XGBoost 
-4. XGB2: XGBoost with Hyperparameter Tuning
+4. XGB2: XGBoost dengan Hyperparameter Tuning
 
-*Hyperparameter* dari algoritma Random Forest yang di-*tuning*, yaitu:
-1. max_depth: kedalaman atau panjang pohon, yang berarti ukuran seberapa banyak pohon dapat membelah (*splitting*) untuk membagi setiap node ke dalam jumlah pengamatan yang diinginkan.
-2. min_samples_leaf: jumlah minimum sampel yang diperlukan untuk berada di *leafs* (daun).
+Hyperparameter dari algoritma Random Forest yang di-tuning, yaitu:
+1. max_depth: kedalaman atau panjang pohon yang berarti ukuran seberapa banyak pohon dapat membelah (splitting) untuk membagi setiap node ke dalam jumlah pengamatan yang diinginkan.
+2. min_samples_leaf: jumlah minimum sampel yang diperlukan untuk berada di leafs (daun).
 3. mis_samples split: jumlah minimum sampel yang diperlukan untuk membagi node internal.
-4. n_estimator: jumlah *trees* (pohon) di forest.
+4. n_estimator: jumlah trees (pohon) di forest.
 
-Di sisi lain, *hyperparameter* dari algoritma XGBoost yang di-*tuning*, yaitu:
+Di sisi lain, hyperparameter dari algoritma XGBoost yang di-tuning, yaitu:
 1. n_estimator: jumlah trees (pohon) di forest.
-2. learning_rate: bobot yang diterapkan pada setiap *regresso*r di masing-masing proses iterasi *boosting*.
-2. max_depth: kedalaman atau panjang pohon, yang berarti ukuran seberapa banyak pohon dapat membelah (*splitting*) untuk membagi setiap node ke dalam jumlah pengamatan yang diinginkan.
+2. learning_rate: bobot yang diterapkan pada setiap regressor di masing-masing proses iterasi boosting.
+2. max_depth: kedalaman atau panjang pohon, yang berarti ukuran seberapa banyak pohon dapat membelah (splitting) untuk membagi setiap node ke dalam jumlah pengamatan yang diinginkan.
 
-*Hyperparameter tuning* dilakukan dengan menggunakan fungsi GridSearchCV dari library ScikitLearn sedemikian sehingga diperoleh nilai *hyparameter* terbaik, yaitu:
+Hyperparameter tuning dilakukan dengan menggunakan fungsi **GridSearchCV** dari library ScikitLearn sedemikian sehingga diperoleh nilai hyparameter terbaik, yaitu:
 1. Random Forest
 ```
 {'max_depth': 3,
@@ -240,18 +277,20 @@ Di sisi lain, *hyperparameter* dari algoritma XGBoost yang di-*tuning*, yaitu:
  'max_depth': 3,
  'n_estimators': 300}
  ```
- Nilai *hyperparameter* tersebut yang digunakan untuk mengembangkan model RF2 dan XGB2.
+ Nilai hyperparameter tersebut yang digunakan untuk mengembangkan model RF2 dan XGB2.
 
 ## Evaluation
-Model *machine learning* yang dibangun di atas merupakan model regeresi, akibatnya untuk mengevaluasi performa model tersebut bisa digunakan tiga metrik evaluasi, yaitu:
-1. MSE (*Mean Squarred Error*).
-2. MAE (*Mean Absolute Error*).
-3. $R^2$ (*R-Squarred*).
+Model machine learning yang dibangun di atas merupakan model regresi, akibatnya untuk mengevaluasi performa model tersebut bisa digunakan tiga metrik evaluasi, yaitu:
+1. MSE (Mean Squarred Error).
+2. MAE (Mean Absolute Error).
+3. $R^2$ (R-Squarred).
 
 Berikut ini diberikan rumus dari ketiga metrik evaluasi di atas, yaitu:
+
 $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y})^2,$$
 $$MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}|,$$
 $$R^2 = 1 - (MSE/Var(y)),$$
+
 dengan:
 - $n$ = ukuran sampel
 - $y_i$ = nilai data aktual
@@ -259,17 +298,21 @@ dengan:
 - $var(y)$ = variansi dari data aktual 
 
 Adapun kegunaan dari setiap metrik evaluasi di atas, yaitu:
-- MSE untuk menghitung rata-rata dari selisih kuadrat dari nilai hasil data hasil prediksi dan nilai data aktual. Semakin kecil nilai MSE, maka semakin baik kualitas model tersebut. 
-- MAE untuk menghitung selisih absolut dari nilai data hasil prediksi dan nilai data aktual. Semakin kecil nilai MAE, maka semakin baik kualitas model tersebut. 
-- $R^2$ untuk mengetahui seberapa besar pengaruh variabel independen tertentu terhadap variabel dependen. 
+- **MSE** digunakan untuk menghitung rata-rata dari selisih kuadrat antara nilai hasil prediksi dan nilai data aktual. Semakin kecil nilai MSE, maka semakin baik kualitas model tersebut.
+- **MAE** digunakan untuk menghitung selisih absolut antara nilai data hasil prediksi dan nilai data aktual. Semakin kecil nilai MAE, maka semakin baik kualitas model tersebut.
+- **R²** digunakan untuk mengetahui seberapa besar pengaruh variabel independen tertentu terhadap variabel dependen, mengukur seberapa baik model dapat menggambarkan variasi data yang ada.
 
-Selanjutnya, dibandingkan nilai ketiga metrik evaluasi dari masing-masing model. Nilai metrik evaluasi MSE terhadap data latih (train_mse) dan data uji (test_mse) dibandingkan menggunakan *barplot* berikut ini.
+Selanjutnya, dibandingkan nilai ketiga metrik evaluasi dari masing-masing model. Nilai metrik evaluasi **MSE** terhadap **data latih (train_mse) dan data uji (test_mse)** dibandingkan menggunakan Barplot berikut ini.
 
 ![perbandingan_mse](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/0864012e-b013-44ff-bf9a-0c43f9d6a68d)
 
 Gambar 4. Perbandingan Nilai MSE terhadap Data Latih dan Data Uji
 
-Berdasarkan Gambar 4 (*barplot*) tersebut diperoleh bahwa model RF2 dan XGB2 mempunyai nilai 'test_mse' yang lebih rendah dibandingkan kedua model lainnya. Dilain hal, selisih nilai 'test_mse' dan 'train_mse' pada model RF2 dan XGB2 lebih kecil dibandingkan dua model lainnya, yang berarti kedua model tidak terlalu *overfitting*. Dengan demikian, bedasarkan perbandingan nilai metrik evaluasi MSE terhadap data latih (train_mse) dan data uji (test_mse) tersebut diperoleh model RF2 dan XGB2 lebih baik dari kedua model lainnya.
+Berdasarkan Gambar 4 (Barplot) tersebut diperoleh bahwa:
+- Model RF2 dan XGB2 mempunyai nilai 'test_mse' yang lebih rendah dibandingkan kedua model lainnya.
+- Selisih nilai 'test_mse' dan 'train_mse' pada model RF2 dan XGB2 lebih kecil dibandingkan dua model lainnya, yang berarti kedua model tidak terlalu overfitting.
+  
+Dengan demikian, bedasarkan perbandingan nilai metrik evaluasi MSE terhadap data latih (train_mse) dan data uji (test_mse) tersebut diperoleh **model RF2 dan XGB2 lebih baik dari kedua model lainnya**.
 
 Lebih lanjut, dibandingkan nilai ketiga metrik evaluasi yaitu nilai MSE terhadap data uji (test_MSE), MAE, dan $R^2$ dari setiap model *machine learning* yang sudah dibangun menggunakan Tabel 2 berikut.
 
@@ -281,11 +324,15 @@ Tabel 2. Nilai Metrik Evaluasi Setiap Model
 | XGB1 | 25967.960248 | 2948.621166460513 | 0.5543072781685672 |
 | XGB2 | 23633.954472 | 2848.303577468292 | 0.594366234561500 |
 
-Berdasarkan Tabel 2 di atas, diperoleh bahwa model RF2 dan XGB2 mempunyai nilai MSE dan MAE terhadap data uji (test_mse) yang lebih rendah dibandingkan kedua model lainnya. Di sisi lain, nilai $R^2$ model RF2 dan XGB2 yang lebih tinggi dibandingkan dua model lainnya. Dengan demikian, berdasarkan perbandingan ketiga nilai metrik evaluasi tersebut diperoleh model RF2 dan XGB2 lebih baik daripada kedua model lainnya. 
+Berdasarkan Tabel 2 di atas, diperoleh bahwa:
+- Model RF2 dan XGB2 mempunyai nilai MSE dan MAE terhadap data uji (test_mse) yang lebih rendah dibandingkan kedua model lainnya.
+- Nilai $R^2$ model RF2 dan XGB2 yang lebih tinggi dibandingkan dua model lainnya, yang menunjukkan bahwa kedua model tersebut lebih baik dalam menggambarkan variabilitas data.
 
-Oleh karena itu, berdasarkan hasil perbandingan nilai metrik evaluasi MSE (train_MSE dan test_MSE), MAE, dan $R^2$ menggunakan Gambar 4 (*barplot*) dan Tabel 2 di atas, diperoleh bahwa model RF2 (Random Forest with Hyperparameter Tuning) dan XGB2 (XGBoost with Hyperparameter Tuning) adalah model terbaik untuk prediksi biaya asuransi kesehatan.
+Dengan demikian, berdasarkan perbandingan ketiga nilai metrik evaluasi tersebut diperoleh **model RF2 dan XGB2 lebih baik daripada kedua model lainnya**. 
 
-Berikut ini berikan hasil pengujian masing-masing model dengan menggunakan salah satu *record* data dari data uji.
+Oleh karena itu, berdasarkan hasil perbandingan nilai metrik evaluasi MSE (train_MSE dan test_MSE), MAE, dan $R^2$ menggunakan Gambar 4 (*barplot*) dan Tabel 2 di atas, diperoleh bahwa **model RF2 (Random Forest with Hyperparameter Tuning) dan XGB2 (XGBoost with Hyperparameter Tuning) adalah model terbaik untuk prediksi biaya asuransi kesehatan**.
+
+Berikut ini berikan hasil pengujian masing-masing model dengan menggunakan salah satu record data dari data uji.
 
 Tabel 3. Hasil Prediksi Setiap Model
 | y_true	| prediksi_RF1	|prediksi_RF2 |	prediksi_XGB1 |	prediksi_XGB2 |
@@ -305,3 +352,13 @@ Terlihat bahwa model RF2 dan XGB2 memberikan hasil yang paling mendekati y_true 
 [4] Setyawan, F. E. B. (2015). Sistem Pembiayaan Kesehatan. Saintika Medika, 11(2), 119-126.
 
 [5] Sumantiawan, D. I. (2024). METODE ANALASIS MENGGUNAKAN ALGORITMA RANDOM FOREST UNTUK PREDIKSI BIAYA ASURANSI KESEHATAN. JICode: Jurnal Informatika dan Komputer, 1(1), 1-8.
+
+[6] Breiman, L. (2001). Random forests. Machine Learning, 45(1), 5–32. 
+
+[7] Zhang, Z., & Yang, L. (2015). Random Forest Algorithm for Classification. Proceedings of the International Conference on Computational Intelligence and Communications Networks, 174-179. 
+
+[8] Ramaswamy, S., & Ramakrishnan, R. (2010). An overview of Random Forest. ResearchGate. Link
+
+[9] Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785–794. 
+
+[10] Li, L., & Li, W. (2017). A survey on overfitting and model complexity. International Journal of Computer Science and Information Technology. 
