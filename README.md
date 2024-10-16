@@ -98,11 +98,13 @@ Berdasarkan hasil Data Assesing yang telah dilakukan, diperoleh temuan sebagai b
 Berdasarkan temuan dari **Data Assesing**, langkah selanjutnya adalah melakukan **Data Cleaning**, yang meliputi pembersihan data dengan langkah-langkah sebagai berikut:
 - **Penghapusan Record Duplikat**: Menghapus record yang terduplikat agar tidak mempengaruhi analisis dan model.
 - **Penanganan Outlier**: Mengatasi outlier dengan menggunakan metode Interquartile Range (IQR). Rumus untuk IQR adalah:
+
 $$IQR = Q_3 - Q_1,$$ 
+
 dengan:
-    - $IQR$ = *Inter Quartile Range*
-    - $Q_3$ = Quartile 3
-    - $Q_1$ = Quartile 1
+  - $IQR$ = *Inter Quartile Range*
+  - $Q_3$ = Quartile 3
+  - $Q_1$ = Quartile 1
 
 Setelah dilakukan **penghapusan record duplikat**, dataset yang tersisa terdiri dari **1337 record**. Selanjutnya, setelah mengimplementasikan metode IQR untuk menangani outlier, dataset yang digunakan dalam tahap selanjutnya berjumlah **1192 record**.
 
@@ -184,21 +186,20 @@ Untuk memperdalam analisis korelasi antar fitur numerik, digunakan **correlation
 
 Gambar 3. Correlation Matrix untuk Fitur Numerik
 
-Berdasarkan correlation matrix, dapat dilihat bahwa:
-- Age memiliki korelasi positif yang cukup signifikan dengan charges (0.44).
-- BMI memiliki korelasi yang sangat kecil dengan charges (-0.06).
-Children memiliki korelasi yang sangat kecil dengan charges (0.08).
-- BMI dan Children juga menunjukkan korelasi yang sangat kecil satu sama lain, dengan nilai korelasi yang hampir mendekati 0.
+Berdasarkan correlation matrix, dapat dilihat korelasi antara fitur age, BMI, dan children dengan fitur charge.
+- **Age** memiliki **korelasi positif** yang cukup signifikan dengan charges (0.44).
+- **BMI** memiliki **korelasi yang sangat kecil** dengan charges (-0.06).
+- **Children** memiliki **korelasi yang sangat kecil** dengan charges (0.08).
 
 Selain charges, kita juga melakukan analisis korelasi antar fitur numerik lainnya, yaitu age, BMI, dan children.
-- Age dan BMI memiliki korelasi 0.12, yang menunjukkan hubungan lemah positif antara usia dan indeks massa tubuh (BMI). Meskipun hubungan ini lemah, semakin tua usia seseorang mungkin sedikit berhubungan dengan tingginya BMI.
-- Age dan Children memiliki korelasi 0.04, yang sangat kecil. Hal ini menunjukkan bahwa usia seseorang hampir tidak berhubungan dengan jumlah anak yang dimilikinya.
-- BMI dan Children memiliki korelasi 0.01, yang juga sangat kecil. Ini menunjukkan bahwa BMI tidak memiliki pengaruh yang signifikan terhadap jumlah anak yang dimiliki.
+- **Age** dan **BMI** memiliki korelasi 0.12, yang menunjukkan hubungan **lemah positif** antara usia dan indeks massa tubuh (BMI). Meskipun hubungan ini lemah, semakin tua usia seseorang mungkin sedikit berhubungan dengan tingginya BMI.
+- **Age** dan **Children** memiliki korelasi 0.04, yang **sangat kecil**. Hal ini menunjukkan bahwa usia seseorang hampir tidak berhubungan dengan jumlah anak yang dimilikinya.
+- **BMI** dan **Children** memiliki korelasi 0.01, yang juga **sangat kecil**. Ini menunjukkan bahwa BMI tidak memiliki pengaruh yang signifikan terhadap jumlah anak yang dimiliki.
 
-Kesimpulan Korelasi Antar Fitur Numerik:
-- Age memiliki korelasi yang cukup signifikan dengan charges, sehingga penting untuk dipertahankan dalam model.
-- BMI dan children memiliki korelasi yang sangat kecil dengan charges, serta antara satu dengan yang lain, sehingga dipertimbangkan untuk dihilangkan guna menyederhanakan model.
-- Age, BMI, dan children semuanya memiliki korelasi yang sangat kecil satu sama lain. Oleh karena itu, fitur-fitur ini dapat dianggap independen dalam hal interaksi antar mereka.
+**Kesimpulan** Korelasi Antar Fitur Numerik:
+- **Age** memiliki korelasi yang **cukup signifikan** dengan charges, sehingga penting untuk **dipertahankan** dalam model.
+- **BMI** dan children memiliki korelasi yang **sangat kecil** dengan charges, serta antara satu dengan yang lain, sehingga dipertimbangkan untuk **dihilangkan** guna menyederhanakan model.
+- **Age, BMI, dan children** semuanya memiliki korelasi yang **sangat kecil** satu sama lain. Oleh karena itu, fitur-fitur ini dapat dianggap **independen** dalam hal interaksi antar mereka.
 
 ## Data Preparation 
 Pada tahap **data preparation** atau persiapan data, dilakukan transformasi data agar sesuai untuk proses pemodelan. Terdapat tiga langkah utama yang dilakukan, yaitu:
@@ -206,16 +207,18 @@ Pada tahap **data preparation** atau persiapan data, dilakukan transformasi data
 Encoding digunakan untuk mengubah fitur kategori menjadi fitur numerik, yang diperlukan oleh sebagian besar algoritma pembelajaran mesin. Pada dataset ini, encoding dilakukan pada fitur kategori 'sex' menggunakan teknik Label Encoding yang diterapkan melalui fungsi LabelEncoder dari library Scikit-learn. Dengan teknik ini, fitur 'sex' yang awalnya bernilai 'male' dan 'female' diubah menjadi angka numerik.
 2. **Pembagian Dataset**
 Sebelum membangun model, data perlu dibagi menjadi dua bagian utama: data latih (train) dan data uji (test). Pembagian ini dilakukan dengan menggunakan fungsi train_test_split dari library Scikit-learn. Proporsi umum yang digunakan dalam tahap ini adalah **80:20**, artinya 80% data digunakan untuk pelatihan model dan 20% sisanya digunakan untuk pengujian model. Berdasarkan proporsi tersebut, hasil pembagian dataset adalah sebagai berikut:
-- Data latih terdiri dari **953 record**
-- Data uji terdiri dari **239 record** 
+    - Data latih terdiri dari **953 record**
+    - Data uji terdiri dari **239 record** 
 3. **Scaling Fitur Numerik**
 Scaling atau penyekalaan adalah langkah penting untuk mengubah nilai-nilai fitur numerik agar berada dalam rentang tertentu. Hal ini penting untuk memastikan bahwa model tidak terpengaruh oleh skala fitur yang berbeda. Salah satu teknik yang umum digunakan adalah **MinMaxScaler** dari library Scikit-learn, yang mentransformasi data sehingga berada dalam rentang 0 hingga 1. Proses scaling menggunakan rumus berikut:
+
 $$x_{scaled} = \frac{x - min}{max - min},$$
+
 dengan:
-    - $x_{scaled}$ = hasil scaling data
-    - $x$ = nilai data pada fitur yang di scaling
-    - $min$ = nilai minimal fitur
-    - $max$ = nilai maksimal fitur 
+ - $x_{scaled}$ = hasil scaling data
+ - $x$ = nilai data pada fitur yang di scaling
+ - $min$ = nilai minimal data pada fitur yang di scaling
+ - $max$ = nilai maksimal data pada fitur yang di scaling
 
 ## Modeling
 Pada tahap ini dikembangkan model *machine learning* dengan dua algoritma, yaitu:
