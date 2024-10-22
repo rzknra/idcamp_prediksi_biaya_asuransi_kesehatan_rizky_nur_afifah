@@ -140,8 +140,8 @@ Diperhatikan Gambar 1b berikut ini.
 Gambar 1b. Analisis Univariat (Fitur Numerik)
 
 Berdasarkan Gambar 1b di atas, diperoleh bahwa:
-- Distribusi variabel 'charges', 'age', dan 'children': menunjukkan kemiringan ke kanan (skewed right), yang mengindikasikan bahwa sebagian besar sampel memiliki nilai yang lebih rendah, sementara hanya sedikit sampel dengan nilai yang lebih tinggi.
-- Distribusi variabel 'bmi: terlihat mendekati distribusi normal, menunjukkan bahwa nilai-nilai 'bmi' tersebar secara simetris di sekitar mean dengan sedikit skewness.
+- **Distribusi variabel 'charges', 'age', dan 'children':** menunjukkan kemiringan ke kanan (skewed right), yang mengindikasikan bahwa sebagian besar sampel memiliki nilai yang lebih rendah, sementara hanya sedikit sampel dengan nilai yang lebih tinggi.
+- **Distribusi variabel 'bmi:** terlihat mendekati distribusi normal, menunjukkan bahwa nilai-nilai 'bmi' tersebar secara simetris di sekitar mean dengan sedikit skewness.
 
 Setelah dilakukan analisis univariat, selanjutnya dilakukan analisis multivariat.
 
