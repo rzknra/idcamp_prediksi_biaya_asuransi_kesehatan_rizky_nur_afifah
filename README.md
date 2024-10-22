@@ -140,9 +140,8 @@ Diperhatikan Gambar 1b berikut ini.
 Gambar 1b. Analisis Univariat (Fitur Numerik)
 
 Berdasarkan Gambar 1b di atas, diperoleh bahwa:
-1. Peningkatan nilai 'children' dan 'charges' sebanding dengan penurunan jumlah sampel. Hal ini terlihat dari histrogram 'children' dan 'charges' yang grafiknya mengalami penurunan seiring semakin banyaknya jumlah sampel.
-2. Distribusi 'charges', 'age', dan 'children' miring ke kanan, artinya lebih banyak data dengan nilai yang lebih rendah dibandingkan yang lebih tinggi. Di sisi lain, distribusi 'bmi' cenderung normal.
-3. Rentang 'charges' cukup tinggi yaitu dari skala ratusan dolar amerika hingga sekitar \$60000.
+- Distribusi variabel 'charges', 'age', dan 'children': menunjukkan kemiringan ke kanan (skewed right), yang mengindikasikan bahwa sebagian besar sampel memiliki nilai yang lebih rendah, sementara hanya sedikit sampel dengan nilai yang lebih tinggi.
+- Distribusi variabel 'bmi: terlihat mendekati distribusi normal, menunjukkan bahwa nilai-nilai 'bmi' tersebar secara simetris di sekitar mean dengan sedikit skewness.
 
 Setelah dilakukan analisis univariat, selanjutnya dilakukan analisis multivariat.
 
