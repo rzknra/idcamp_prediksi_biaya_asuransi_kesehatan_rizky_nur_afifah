@@ -353,45 +353,36 @@ Adapun kegunaan dari setiap metrik evaluasi di atas, yaitu:
 - **MAE** digunakan untuk menghitung selisih absolut antara nilai data hasil prediksi dan nilai data aktual. Semakin kecil nilai MAE, maka semakin baik kualitas model tersebut.
 - **R²** digunakan untuk mengetahui seberapa besar pengaruh variabel independen tertentu terhadap variabel dependen, mengukur seberapa baik model dapat menggambarkan variasi data yang ada.
 
-Selanjutnya, dibandingkan nilai ketiga metrik evaluasi dari masing-masing model. Nilai metrik evaluasi **MSE** terhadap **data latih (train_mse) dan data uji (test_mse)** dibandingkan menggunakan Barplot berikut ini.
-
-![perbandingan_mse](https://github.com/rzknra/idcamp_mlt_predictive_analytics/assets/94267677/0864012e-b013-44ff-bf9a-0c43f9d6a68d)
-
-Gambar 4. Perbandingan Nilai MSE terhadap Data Latih dan Data Uji
-
-Berdasarkan Gambar 4 (Barplot) tersebut diperoleh bahwa:
-- Model RF2 dan XGB2 mempunyai nilai 'test_mse' yang lebih rendah dibandingkan kedua model lainnya.
-- Selisih nilai 'test_mse' dan 'train_mse' pada model RF2 dan XGB2 lebih kecil dibandingkan dua model lainnya, yang berarti kedua model tidak terlalu overfitting.
-  
-Dengan demikian, bedasarkan perbandingan nilai metrik evaluasi MSE terhadap data latih (train_mse) dan data uji (test_mse) tersebut diperoleh **model RF2 dan XGB2 lebih baik dari kedua model lainnya**.
-
-Lebih lanjut, dibandingkan nilai ketiga metrik evaluasi yaitu nilai MSE terhadap data uji (test_MSE), MAE, dan $R^2$ dari setiap model *machine learning* yang sudah dibangun menggunakan Tabel 2 berikut.
+Lebih lanjut, nilai ketiga metrik evaluasi dari masing-masing model terhadap data latih maupun data uji diberikan sebagai berikut.   
 
 Tabel 2. Nilai Metrik Evaluasi Setiap Model
-|     | MSE | MAE | $R^2$ | 
-|-----|-----|-----|-----|
-| RF1 | 25282.763885 | 2922.9584113729475 | 0.5660674252523771 |
-| RF2 | 24324.410399 | 2897.073605878178 | 0.5825158166395445 |
-| XGB1 | 25967.960248 | 2948.621166460513 | 0.5543072781685672 |
-| XGB2 | 23633.954472 | 2848.303577468292 | 0.594366234561500 |
+|      |   train_mse |   test_mse |   train_mae |   test_mae |   train_r2 |   test_r2 |
+|:-----|------------:|-----------:|------------:|-----------:|-----------:|----------:|
+| RF1  |     18539.6 |    25282.8 |     2412.74 |    2922.96 |   0.636138 |  0.566067 |
+| RF2  |     19569.5 |    24324.4 |     2476.07 |    2897.07 |   0.615926 |  0.582516 |
+| XGB1 |     18499.8 |    25968   |     2400.94 |    2948.62 |   0.636919 |  0.554307 |
+| XGB2 |     19318.5 |    23634   |     2481.84 |    2848.3  |   0.620852 |  0.594366 |
 
-Berdasarkan Tabel 2 di atas, diperoleh bahwa:
-- Model RF2 dan XGB2 mempunyai nilai MSE dan MAE terhadap data uji (test_mse) yang lebih rendah dibandingkan kedua model lainnya.
-- Nilai $R^2$ model RF2 dan XGB2 yang lebih tinggi dibandingkan dua model lainnya, yang menunjukkan bahwa kedua model tersebut lebih baik dalam menggambarkan variabilitas data.
+Untuk mendapatkan gambaran yang lebih jelas, dibandingkan nilai ketiga metrik evaluasi terhadap data latih dan data uji menggunakan Bar Chart berikut ini. 
 
-Dengan demikian, berdasarkan perbandingan ketiga nilai metrik evaluasi tersebut diperoleh **model RF2 dan XGB2 lebih baik daripada kedua model lainnya**. 
+![download](https://github.com/user-attachments/assets/73a9fbf3-0af6-4544-a32f-ce5b14f4233d)
 
-Oleh karena itu, berdasarkan hasil perbandingan nilai metrik evaluasi MSE (train_MSE dan test_MSE), MAE, dan $R^2$ menggunakan Gambar 4 (*barplot*) dan Tabel 2 di atas, diperoleh bahwa **model RF2 (Random Forest with Hyperparameter Tuning) dan XGB2 (XGBoost with Hyperparameter Tuning) adalah model terbaik untuk prediksi biaya asuransi kesehatan**.
+Gambar 4. Perbandingan Nilai Ketiga Metrik Evaluasi terhadap Data Latih dan Data Uji
 
-Berikut ini berikan hasil pengujian masing-masing model dengan menggunakan salah satu record data dari data uji.
+Berdasarkan Gambar 4 di atas, diperoleh bahwa:
+1. **Overfitting**:
+   - **XGB1** (XGBoost Baseline) menunjukkan sedikit tanda **overfitting**, karena perbedaan antara MSE dan R² pada data latih dan data uji relatif besar (MSE pada data uji lebih tinggi dibanding data latih, dengan penurunan R² yang cukup besar). Model ini mungkin terlalu "terlatih" pada data latih, yang mengurangi performa saat diuji pada data baru.
+   - **Model RF2** (Random Forest  dengan hyperparameter tuning) dan **XGB2** (XGBoost
+   dengan hyperparameter tuning) tampak lebih seimbang, dengan perbedaan yang lebih kecil antara performa pada data latih dan data uji, yang menandakan bahwa mereka **tidak terlalu overfitting**.
+2. **Performa Model Terbaik**:
+   - Dari tabel ini, **XGB2** (XGBoost
+   dengan hyperparameter tuning) tampak sebagai **model terbaik** karena performanya di data uji yang lebih baik dari semua metrik (nilai MSE dan MAE yang rendah, serta R² yang lebih tinggi). Ini berarti model tersebut dapat memprediksi biaya asuransi kesehatan dengan lebih akurat.
 
-Tabel 3. Hasil Prediksi Setiap Model
-| y_true	| prediksi_RF1	|prediksi_RF2 |	prediksi_XGB1 |	prediksi_XGB2 |
-|----|---|---|---|---|
-| 6877.9801  | 8472.5 | 7024.5 | 8458.5 | 7274.700195 |
-
-Terlihat bahwa model RF2 dan XGB2 memberikan hasil yang paling mendekati y_true (nilai asli).
-
+**Kesimpulan Akhir**:
+- **XGB2** (XGBoost
+   dengan hyperparameter tuning) adalah **model yang paling tepat** berdasarkan performa keseluruhan di data uji sehingga model ini paling cocok digunakan untuk memeprediksi biaya asuransi kesehatan.
+- Jika dihadapkan dengan trade-off antara akurasi prediksi dan kemungkinan overfitting, **XGB2** (XGBoost
+   dengan hyperparameter tuning) sepertinya memiliki **keseimbangan terbaik**.
 
 ## Referensi 
 [1] Iriana, N., & Nasution, Y. N. (2020). Penentuan Cadangan Premi Asuransi Jiwa Seumur Hidup Menggunakan Metode Zillmer. Jurnal Matematika, Statistika Dan Komputasi, 16(2), 219-225.
