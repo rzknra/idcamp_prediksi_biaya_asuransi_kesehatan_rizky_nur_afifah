@@ -274,8 +274,17 @@ Pada tahap ini dikembangkan model *machine learning* dengan dua algoritma, yaitu
 2. XGBoost.
 
 Kedua model tersebut termasuk dalam kategori **ensemble models**, di mana prediksi dibuat dengan menggabungkan beberapa model secara bersama-sama. Ada dua pendekatan utama dalam teknik ensemble, yaitu **bagging dan boosting**.
-- **Random Forest** adalah algoritma yang berbasis **bagging**, yang menggunakan beberapa pohon keputusan dan menggabungkan hasilnya untuk memprediksi output.
-- **XGBoost** adalah algoritma berbasis **boosting**, yang membangun model secara bertahap, di mana setiap pohon keputusan yang baru berfokus pada kesalahan yang dibuat oleh pohon keputusan sebelumnya.
+- **Random Forest** adalah algoritma yang berbasis **bagging**, yang menggunakan beberapa pohon keputusan dan menggabungkan hasilnya untuk memprediksi output. Berikut ini diberikan gambar yang menjelaskan cara kerja algoritma Random Forest.
+  
+![download](https://cdn.prod.website-files.com/64b3ee21cac9398c75e5d3ac/66e9a4948705338c669d01f2_655c9a4d5ea4474cde6ddcbe_qwak-xgboost-random-forest-2.webp)
+
+Gambar 4. Cara Kerja Algoritma Random Forest
+
+- **XGBoost** adalah algoritma berbasis **boosting**, yang membangun model secara bertahap, di mana setiap pohon keputusan yang baru berfokus pada kesalahan yang dibuat oleh pohon keputusan sebelumnya. Berikut ini diberikan gambar yang menjelaskan cara kerja algoritma XGBoost.
+
+![download](https://cdn.prod.website-files.com/64b3ee21cac9398c75e5d3ac/66e9a4948705338c669d01e6_655c9a94f6b8feca172f5545_qwak-xgboost-random-forest-4.webp)
+
+Gambar 5. Cara Kerja Algoritma XGBoost
 
 ### Kelebihan dan Kekurangan Model
 Algoritma Random Forest dan XGBoost mempunyai kelebihan dan kekurangan masing-masing. Kelebihan dan kekurangan algoritma **Random Forest**, yaitu:
@@ -365,11 +374,11 @@ Tabel 2. Nilai Metrik Evaluasi Setiap Model
 
 Untuk mendapatkan gambaran yang lebih jelas, dibandingkan nilai ketiga metrik evaluasi terhadap data latih dan data uji menggunakan Bar Chart berikut ini. 
 
-![download](https://github.com/user-attachments/assets/73a9fbf3-0af6-4544-a32f-ce5b14f4233d)
+![gambar perbandingan ketiga metrik evaluasi](https://github.com/user-attachments/assets/73a9fbf3-0af6-4544-a32f-ce5b14f4233d)
 
-Gambar 4. Perbandingan Nilai Ketiga Metrik Evaluasi terhadap Data Latih dan Data Uji
+Gambar 6. Perbandingan Nilai Ketiga Metrik Evaluasi terhadap Data Latih dan Data Uji
 
-Berdasarkan Gambar 4 di atas, diperoleh bahwa:
+Berdasarkan Gambar 6 di atas, diperoleh bahwa:
 1. **Overfitting**:
    - **XGB1** (XGBoost Baseline) menunjukkan sedikit tanda **overfitting**, karena perbedaan antara MSE dan R² pada data latih dan data uji relatif besar (MSE pada data uji lebih tinggi dibanding data latih, dengan penurunan R² yang cukup besar). Model ini mungkin terlalu "terlatih" pada data latih, yang mengurangi performa saat diuji pada data baru.
    - **Model RF2** (Random Forest  dengan hyperparameter tuning) dan **XGB2** (XGBoost
