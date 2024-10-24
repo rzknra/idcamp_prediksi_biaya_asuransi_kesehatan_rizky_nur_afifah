@@ -81,6 +81,55 @@ Deskripsi statistik di atas meliputi:
 7. 75% adalah kuartil ketiga.
 8. Max adalah nilai maksimum.
 
+Berdasarkan deskripsi statistik fitur numerik di atas diperoleh bahwa:
+1. **Age**
+   - **Rata-rata** umur adalah 39,2 tahun, dengan **standar deviasi** sebesar 14,05. Ini menunjukkan bahwa usia tertanggung cukup tersebar di sekitar rata-rata dengan variasi yang cukup besar.
+   - **Rentang** umur berkisar dari 18 hingga 64 tahun.
+   - Sebanyak **50%** populasi berumur di bawah 39 tahun.
+3. **BMI**
+   - **Rata-rata** BMI adalah 30,66, yang termasuk kategori overweight (indeks di atas 25).
+   - **Standar deviasi** sebesar 6,1 menunjukkan adanya variasi yang cukup besar dalam distribusi BMI di antara tertanggung.
+   - Rentang BMI berkisar dari 15,96 hingga 53,13, menunjukkan beberapa individu mungkin berada di kategori obesitas ekstrem.
+   - Sebanyak **50%** individu memiliki BMI di bawah 30,4.
+5. **Children**
+   - **Rata-rata** jumlah anak adalah 1,09, yang menunjukkan sebagian besar tertanggung memiliki 1 anak atau kurang.
+   - **Standar deviasi** Standar deviasi sebesar 1,2 menunjukkan bahwa terdapat variasi yang besar dalam jumlah anak di antara tertanggung.
+   - **Rentang** jumlah anak adalah dari 0 hingga 5 anak
+   - Sebanyak 50% dari populasi memiliki 1 anak atau kurang.
+7. **Charge**
+   - **Rata-rata** biaya asuransi adalah 13.270,42 unit mata uang, dengan **standar deviasi** yang cukup besar sebesar 12.110,01. Ini menunjukkan distribusi biaya sangat bervariasi, dengan
+     sebagian besar biaya lebih rendah, tetapi ada beberapa kasus dengan biaya yang jauh lebih tinggi.
+   - **Rentang** biaya asuransi mulai dari 1.121,87 hingga 63.770,43, dengan sebagian besar populasi membayar biaya di bawah 16.639,91.
+   - Sebanyak 50% populasi membayar biaya asuransi kurang dari 9.382,03.
+
+Selanjutnya akan dihitung juga koefisien variasi untuk membandingkan keragaman antar fitur numerik. Koefisien variasi adalah perbandingan antara standar deviasi dengan rata-rata. Koefisien variasi biasanya dinyatakan dengan persentase, sebagaimana dituliskan dalam rumus berikut:
+
+$$CV = \frac{\sigma}{\bar{x}} \times 70 \\% $$
+
+dengan:
+- CV = Koefisien Variasi 
+- $\sigma$ = Standar Deviasi
+- $\bar{x}$ = rata-rata
+
+Untuk masing-masing fitur numerik, dihitung koefisien variasinya sebagai berikut:
+- **Age**
+  
+  $$CV = \frac{14,05}{39,2} \times 100 \\% \approx 35,8 \\% $$
+  
+- **BMI**
+  
+  $$CV = \frac{6,1}{30,66} \times 100 \\% \approx 19,9 \\% $$
+  
+- **Charge**
+  
+  $$CV = \frac{12.110,0112}{13.270,42} \times 100 \\% \approx 91,2 \\% $$
+  
+- **Children**
+  
+  $$CV = \frac{1,21}{1,09} \times 100 \\% \approx 110.92 \\% $$
+
+Dari sini, dapat dilihat bahwa fitur **Charge** dan **Children** memiliki keberagaman yang **sangat besar**, dibandingkan dengan **Age** dan **BMI**, yang memiliki variasi yang **lebih rendah.**
+
 ### Data Assesing
 Pada tahap ini, dilakukan pengecekan terhadap beberapa aspek penting dalam dataset, yaitu:
 
