@@ -104,7 +104,7 @@ Berdasarkan deskripsi statistik fitur numerik di atas diperoleh bahwa:
 
 Selanjutnya akan dihitung juga koefisien variasi untuk membandingkan keragaman antar fitur numerik. Koefisien variasi adalah perbandingan antara standar deviasi dengan rata-rata. Koefisien variasi biasanya dinyatakan dengan persentase, sebagaimana dituliskan dalam rumus berikut:
 
-$$CV = \frac{\sigma}{\bar{x}} \times 70 \\% $$
+$$CV = \frac{\sigma}{\bar{x}} \times 100 \\% $$
 
 dengan:
 - CV = Koefisien Variasi 
